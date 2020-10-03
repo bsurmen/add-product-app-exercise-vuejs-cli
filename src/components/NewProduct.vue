@@ -67,6 +67,8 @@
 </template>
 
 <script>
+import { eventBus } from "../main";
+
 export default {
   data: function() {
     return {
@@ -85,7 +87,17 @@ export default {
       const file = e.target.files[0];
       this.product.selectedImage = URL.createObjectURL(file);
     },
-    addProduct() {},
+    addProduct() {
+      this.product.totalPrice = this.product.count * this.product.price;
+      eventBus.$emit("productAdded", this.product);
+      this.product = {
+        title: null,
+        count: null,
+        price: null,
+        totalPrice: null,
+        selectedImage: null,
+      };
+    },
   },
 };
 </script>
