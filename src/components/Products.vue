@@ -3,16 +3,16 @@
     <app-product v-for="(product, index) in productList" :key="index">
       <img
         class="card-img-top"
-        src="../assets/default.png"
-        alt="Card image cap"
+        :src="product.selectedImage"
+        :alt="product.title"
       />
       <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <small> <strong>Item Number : </strong> 1 </small>
+        <h5 class="card-title">{{ product.title }}</h5>
+        <small> <strong>Item Number : </strong> {{ product.count }} </small>
         <br />
-        <small> <strong>Price : </strong> 10 </small>
+        <small> <strong>Price : </strong> {{ product.price }}</small>
         <br />
-        <small> <strong>Total : </strong> 10 </small>
+        <small> <strong>Total : </strong> {{ product.totalPrice }} </small>
       </div>
     </app-product>
   </div>
