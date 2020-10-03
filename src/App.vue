@@ -7,8 +7,7 @@
 
     <app-new-product></app-new-product>
     <br /><br />
-    <h3 class="text-center">Added Item List</h3>
-    <hr />
+   
     <app-products></app-products>
   </div>
 </template>
