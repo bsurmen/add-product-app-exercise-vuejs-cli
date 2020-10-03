@@ -5,9 +5,7 @@
         <img
           height="128"
           class="img-responsive text-center mb-3"
-          v-bind:src="
-            product.selectedImage == null ? imgPath : product.selectedImage
-          "
+          :src="product.selectedImage == null ? imgPath : product.selectedImage"
         />
         <input
           ref="file"

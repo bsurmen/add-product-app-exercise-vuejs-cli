@@ -3,7 +3,7 @@
     <app-product v-for="(product, index) in productList" :key="index">
       <img
         class="card-img-top"
-        :src="product.selectedImage"
+        :src="product.selectedImage == null ? imgPath : product.selectedImage"
         :alt="product.title"
       />
       <div class="card-body">
@@ -29,11 +29,17 @@ export default {
   data() {
     return {
       productList: [],
+      imgPath: require("../assets/default.png"),
     };
   },
   created() {
     eventBus.$on("productAdded", (product) => {
-      this.productList.push(product);
+      if (this.productList.length < 10) {
+        this.productList.push(product);
+        eventBus.$emit("progressBarUpdated", this.productList.length);
+      } else {
+        alert("You cannot add more product!");
+      }
     });
   },
 };
