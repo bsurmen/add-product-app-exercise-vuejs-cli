@@ -1,4 +1,4 @@
-# hello-world
+# Add Product App Execise
 
 ## Project setup
 ```
