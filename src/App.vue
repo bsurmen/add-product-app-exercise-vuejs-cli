@@ -1,28 +1,62 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="container">
+    <h1 class="text-center">Product Add App</h1>
+    <hr />
+    <app-progress></app-progress>
+    <br /><br />
+
+    <app-new-product></app-new-product>
+    <br /><br />
+    <h3 class="text-center">Added Item List</h3>
+    <hr />
+    <app-products></app-products>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import NewProduct from "./components/NewProduct";
+import Progress from "./components/Progress";
+import Products from "./components/Products";
 
 export default {
-  name: 'App',
+  data() {
+    return {
+      productList: [],
+      product: {
+        selectedImage: null,
+      },
+    };
+  },
   components: {
-    HelloWorld
-  }
-}
+    appNewProduct: NewProduct,
+    appProgress: Progress,
+    appProducts: Products,
+  },
+ 
+};
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+body {
+  background-color: aliceblue;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.card {
+  margin-right: 5px;
+  margin-bottom: 5px;
+}
+
+.card:last-child {
+  margin-right: 0px;
+}
+
+.col-md-2 {
+  max-width: 15.666667% !important;
+}
+
+.product-container {
+  margin-left: 15px;
 }
 </style>
